@@ -133,7 +133,7 @@ return [
     'email_greet'                          => 'Hello',
     'email_line1'                          => 'You are receiving this email because we received a password reset request for your account.',
     'email_line2'                          => 'If you did not request a password reset, no further action is required.',
-    'email_regards'                        => 'Regards',
+    'email_regards'                        => 'Saludos',
     'end_time'                             => 'End time',
     'entry_date'                           => 'Entry date',
     'excerpt'                              => 'Excerpt',

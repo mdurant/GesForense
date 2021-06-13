@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\HtmlString;
 
 class TwoFactorCode extends Notification
 {
@@ -30,10 +31,15 @@ class TwoFactorCode extends Notification
      */
     public function toMail($notifiable)
     {
+        
+
         return (new MailMessage)
-                    ->line('Your two factor code is '.$notifiable->two_factor_code)
-                    ->action('Verify Here', route('verify.index'))
-                    ->line('The code will expire in 10 minutes')
-                    ->line('If you have not tried to login, ignore this message.');
+                    ->subject('[Codigo 2FA - Licrim]')
+                    ->line('Un intento de inicio de sesión en nuestras plataformas requiere una verificación adicional')
+                    ->line('Para completar el inicio de sesión, introduzca el código de verificación en el portal de acceso.')
+                    ->line('Fecha:'.now()->format('d-m-Y').  'Hora:' .now()->format('H:i:s'))
+                    ->line(new HtmlString('<strong>'.$notifiable->two_factor_code.'</strong>'))
+                    ->line('Este código expira en 10 minutos.')
+                    ->line('Si no ha intentado iniciar sesión, ignore este mensaje');
     }
 }
