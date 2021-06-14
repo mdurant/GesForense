@@ -12,10 +12,13 @@
                     @endif
                     <form method="POST" action="{{ route('verify.store') }}">
                         {{ csrf_field() }}
-                        <h1>Two Factor Verification</h1>
+                        <h1>2FA - Acceso</h1>
                         <p class="text-muted">
-                            You have received an email which contains two factor login code.
-                            If you haven't received it, press <a href="{{ route('verify.resend') }}">here</a>.
+                            Hola! <br>
+                            Hemos detectado un inicio de sesión. 
+                            Ha recibido un correo electrónico que contiene el código de acceso de dos factores. Si no lo ha recibido, pulse.
+                             <a href="{{ route('verify.resend') }}">aquí</a>.
+
                         </p>
 
                         <div class="input-group mb-3">
@@ -35,12 +38,12 @@
                         <div class="row">
                             <div class="col-6">
                                 <button type="submit" class="btn btn-primary px-4">
-                                    Verify
+                                    Verificar
                                 </button>
                             </div>
                             <div class="col-6 text-right">
                                 <a class="btn btn-danger px-4" href="#" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
-                                    {{ trans('global.logout') }}
+                                    {{ ('Salir') }}
                                 </a>
                             </div>
                         </div>

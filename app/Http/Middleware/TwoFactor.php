@@ -24,7 +24,7 @@ class TwoFactor
                 $user->resetTwoFactorCode();
                 auth()->logout();
 
-                return redirect()->route('login')->withMessage('The two factor code has expired. Please login again.');
+                return redirect()->route('login')->withMessage('El código de dos factores ha caducado. Por favor, inicie sesión de nuevo');
             }
 
             if(!$request->is('verify*'))

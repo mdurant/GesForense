@@ -33,7 +33,7 @@ class TwoFactorController extends Controller
             return redirect()->route('admin.home');
         }
 
-        return redirect()->back()->withErrors(['two_factor_code' => 'The two factor code you have entered does not match']);
+        return redirect()->back()->withErrors(['two_factor_code' => 'El código de dos factores que ha introducido no coincide']);
     }
 
     public function resend()
@@ -42,6 +42,6 @@ class TwoFactorController extends Controller
         $user->generateTwoFactorCode();
         $user->notify(new TwoFactorCode());
 
-        return redirect()->back()->withMessage('The two factor code has been sent again');
+        return redirect()->back()->withMessage('El código de dos factores ha sido enviado de nuevo');
     }
 }

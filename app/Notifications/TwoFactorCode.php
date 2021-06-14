@@ -35,10 +35,11 @@ class TwoFactorCode extends Notification
 
         return (new MailMessage)
                     ->subject('[Codigo 2FA - Licrim]')
-                    ->line('Un intento de inicio de sesión en nuestras plataformas requiere una verificación adicional')
+                    ->greeting('Hello '. $notifiable->name)
+                    ->line('Un intento de inicio de sesión en nuestras plataformas requiere una verificación adicional.')
                     ->line('Para completar el inicio de sesión, introduzca el código de verificación en el portal de acceso.')
-                    ->line('Fecha:'.now()->format('d-m-Y').  'Hora:' .now()->format('H:i:s'))
-                    ->line(new HtmlString('<strong>'.$notifiable->two_factor_code.'</strong>'))
+                    ->line(new HtmlString('<strong> <h1>'.$notifiable->two_factor_code.'</strong></h1>'))
+                    ->line('Fecha: '.now()->format('d-m-Y'). ' /  Hora: ' .now()->format('H:i:s'))
                     ->line('Este código expira en 10 minutos.')
                     ->line('Si no ha intentado iniciar sesión, ignore este mensaje');
     }
